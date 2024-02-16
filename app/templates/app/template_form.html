@@ -19,13 +19,13 @@
 					<h4 class="text-center mb-4">
 						Заголовок вашей формы
 					</h4>
-					<form method="post">
+					<form action="" method="post">
                         {% csrf_token %}
 						<!-- Запишите здесь тег {% csrf_token %} -->
 
                         <label for="my_text">Введи своё имя</label>  <!--for="my_text" это привязка к объекту с id="my_text", id - всегда должен быть уникален во всем HTML документе-->
                         <div class="form-input">  <!-- Блок для оборачивания строки формы -->
-                            <span><i class="fa fa-id-card"></i></span>  <!-- Fontawesom картинка в строке ввода-->
+                            <span><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>  <!-- Fontawesom картинка в строке ввода-->
 							<input type="text" id="my_text" name="my_text" placeholder="Иван" required>  <!-- Строка ввода-->
 						</div>
                         <!-- Поле с выбором -->
@@ -46,6 +46,17 @@
 
                         <!-- Добавьте своих полей --------------------------------------------------------------------->
                         <!-- Сформируйте и заполните нужные строки ввода (оберните их <div class="form-input"> как показано выше. Это нужно чтобы были одинаковые стили)-->
+						<div class="form-input">
+							<label>твой е-мэйл</label>
+							<input type="email" name="email" >
+							<label>твой пароль</label>
+							<input type="password" name="password">
+							<label>поле для даты</label>
+							<input type="date" name="date">
+							<label>поле для ввода числа</label>
+							<input type="number" name="number">
+							<label>поле для переключения</label>
+							<input type="checkbox" name="checkbox">
 
                         <!---- Добавьте еще поле для ввода email (придумайте текст для label)---->
 
@@ -57,7 +68,12 @@
 
                         <!---- Добавьте еще поле для переключателя checkbox (придумайте текст для label)---->
                         <!--------------------------------------------------------------------------------------------->
-
+						</div>
+						{% if form.errors %}
+							<div class="mb-3 d-flex align-items-center">
+								<span style="color: red; font-size: 16px">{{ form.errors }}</span>
+							</div>
+						{% endif %}
                         <!-- В форме всегда присутствует кнопка чтобы что-то отправить. Кнопку не изменять! -->
 						<div class="mb-3"> 
 							<button type="submit" class="btn btn-block">
