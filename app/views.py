@@ -72,6 +72,7 @@ class TemplView(View):
             return JsonResponse(request.POST)
         return render(request, 'app/template_form.html', context={"form": form})
 
+
 def template_view(request):
     if request.method == "GET":
         return render(request, 'app/template_form.html')

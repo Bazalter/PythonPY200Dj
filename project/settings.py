@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'landing',
     'social_django',
+
 ]
 AUTHENTICATION_BACKENDS = (
    'social_core.backends.github.GithubOAuth2',
